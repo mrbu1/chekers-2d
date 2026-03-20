@@ -2,6 +2,7 @@ import pygame
 import sys
 import os
 
+pygame.init()
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 scr_res = (pygame.display.Info().current_w, pygame.display.Info().current_h) #screen setings pygame.display.Info().current_w, pygame.display.Info().current_h
 screen = pygame.display.set_mode(scr_res)
