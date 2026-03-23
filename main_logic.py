@@ -149,6 +149,11 @@ def blackwin():
     return True
 
 
+def turn(white_turn):
+    if white_turn:
+        print("It is white turn")
+    else:
+        print("It is black turn")
 
 
 def move():
@@ -172,25 +177,19 @@ def move():
         variables.white_turn = not variables.white_turn
         return True
 
-def turn(white_turn):
-    if white_turn:
-        print("It is white turn")
-    else:
-        print("It is black turn")
-
-
 is_from = True
 from1 = None
 to = None
 def move_2d(tile):
     global is_from, from1, to, white_turn
     if is_from:
-        from1 = tile
-        if not from1 in variables.pos_dict:
-            print("I don't know what is '"+from1+"'")
-            return False
-        to = None
-        is_from = False
+        if variables.pos_dict.get(tile) == pos_arr[1] and variables.white_turn or variables.pos_dict.get(tile) == pos_arr[4] and variables.white_turn or variables.pos_dict.get(tile) == pos_arr[0] and not variables.white_turn or variables.pos_dict.get(tile) == pos_arr[3] and not variables.white_turn:
+            from1 = tile
+            if not from1 in variables.pos_dict:
+                print("I don't know what is '"+from1+"'")
+                return False
+            to = None
+            is_from = False
     else:
         to = tile
         if not to in variables.pos_dict:
